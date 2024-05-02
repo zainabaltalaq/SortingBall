@@ -12,8 +12,8 @@
 
 ### **Game instructions**
 
-- Open the game and select a Bingo card to start playing.
-- When a specific number is called, mark it on your card if it exists.
+- Open the game and the game will give you a Bingo board to start playing.
+- When a specific number is called, the player should mark it in the board.
 - Try to complete the desired pattern (such as horizontal, vertical or diagonal row) with specific numbers to win.
 - Keep attention to the numbers called and the pattern required to win.
 
