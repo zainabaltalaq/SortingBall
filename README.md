@@ -1,4 +1,4 @@
-# project-1 : BALL SORT
+# project-1 : SORTING BALL
 
 ## Date: 5/2/2024
 
@@ -6,7 +6,7 @@
 
 ### **_Description_**
 
-#### The ball sort game,  is a game that contains tubes, and each tube contains balls of different colors. The player clicks on the ball to try to move it to another tube until the colors of the balls in each tube are the same.
+#### The SORTING  BALL game,  is a game that contains tubes, and each tube contains balls of different colors. The player clicks on the ball to try to move it to another tube until the colors of the balls in each tube are the same.
 
 ---
 
