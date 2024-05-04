@@ -6,7 +6,7 @@
 
 ### **_Description_**
 
-#### Bingo is a game of chance based on cards with numbers on them. Players fill in the numbers on their card when those numbers are called randomly. The goal is to complete a specific pattern of numbers on the card to win the game.
+#### The ball sort game,  is a game that contains tubes, and each tube contains balls of different colors. The player clicks on the ball to try to move it to another tube until the colors of the balls in each tube are the same.
 
 ---
 
