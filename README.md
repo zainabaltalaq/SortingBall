@@ -12,10 +12,10 @@
 
 ### **Game instructions**
 
-- Open the game and the game will give you a Bingo board to start playing.
-- When a specific number is called, the player should mark it in the board.
-- Try to complete the desired pattern (such as horizontal, vertical or diagonal row) with specific numbers to win.
-- Keep attention to the numbers called and the pattern required to win.
+- The player will have randomly colored balls in tubes
+- The player must press the ball to move it to another tube
+- The player must sort the colored balls of one color into one tube (blue balls in one tube, and green balls in another tube) and the sorting will take place in a specific period of no more than 30 seconds.
+- The player must complete 10 stages to win
 
 ---
 
@@ -25,6 +25,7 @@
 
 - [ ] Create tubes. 
 - [ ] Create balls and put colors for them
+- [ ] Set a timer for each level that does not exceed 30 seconds
 - [ ] Move the balls using the click and place them in the tube
 - [ ] One tube is completed when the player finishes sorting the color in the tube correctly and completely
 - [ ] When all the tube and balls are finished, we must move to the next level
