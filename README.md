@@ -1,4 +1,4 @@
-# project-1 : BINGO
+# project-1 : BALL SORT
 
 ## Date: 5/2/2024
 
@@ -32,11 +32,6 @@
 ### **FRIMWIRE**
 
 ![1](https://www5.0zz0.com/2024/05/02/11/585337051.png)
-![2](https://www5.0zz0.com/2024/05/02/11/328187312.png)
-![3](https://www5.0zz0.com/2024/05/02/11/416643179.png)
-![4](https://www5.0zz0.com/2024/05/02/11/947318262.png)
-![5](https://www5.0zz0.com/2024/05/02/11/552979027.png)
-![6](https://www5.0zz0.com/2024/05/02/11/563137186.png)
-![7](https://www5.0zz0.com/2024/05/02/11/972004860.png)
+
 
 ---
