@@ -23,11 +23,15 @@
 
 ### **_Pseudocode_**
 
-- [ ] Bingo board are prepared for each player. Each card contains a grid of cells, and in each cell there is a specific number. These numbers must be different from other player board.
-- [ ] Play begins by calling random numbers from the  array list. If these numbers are on a player's board, he should mark it on the board.
-- [ ] Players continue to fill in their boards with the numbers called, and keep track of the numbers marked on their boards.
-- [ ] When a player successfully completes a certain pattern of numbers on his card, such as a horizontal, vertical, or diagonal row, the player is declared the winner.
-- [ ] Stop the game, no one can play after the winner player
+- [ ] Create tubes. 
+- [ ] Create balls and put colors for them
+- [ ] Move the balls using the click and place them in the tube
+- [ ] One tube is completed when the player finishes sorting the color in the tube correctly and completely
+- [ ] When all the tube and balls are finished, we must move to the next level
+- [ ] Create more tubes and balls when moving to a higher level
+
+  
+      
 
 ### **FRIMWIRE**
 
