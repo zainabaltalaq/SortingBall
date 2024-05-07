@@ -1,6 +1,6 @@
 const numOfBalls = 3
-const stacks = []
-// stacks.addEventListener("click")
+const cylindersArray = []
+var pickedBall = null
 
 function createBall(color) {
   const ball = document.createElement("div")
@@ -12,38 +12,45 @@ function createBall(color) {
   return ball
 }
 
-function createTable(color1, color2) {
+function createTable(colorArray) {
   const stack = []
-  stack.push(createBall(color1))
-  stack.push(createBall(color2))
-  stack.push(createBall(color1))
-  stacks.push(stack)
+  for (i = 0; i < colorArray.length; i++) {
+    stack.push(createBall(colorArray[i]))
+  }
+  cylindersArray.push(stack)
 }
 
 function add() {
-  for (let i = 0; i < stacks.length; i++) {
-    const div = document.createElement("div")
-    div.className = "cylinder"
-    for (let j = 0; j < stacks[i].length; j++) {
-      if (stacks[i][j]) {
-        div.appendChild(stacks[i][j])
+  for (let i = 0; i < cylindersArray.length; i++) {
+    const cylinderDiv = document.createElement("div")
+    cylinderDiv.className = "cylinder"
+    for (let j = 0; j < cylindersArray[i].length; j++) {
+      if (cylindersArray[i][j]) {
+        cylinderDiv.appendChild(cylindersArray[i][j])
       }
     }
-    document.querySelector("main").appendChild(div)
+    document.querySelector("main").appendChild(cylinderDiv)
 
-    div.addEventListener("click", function () {
-      if (stacks[i].length > 0) {
-        const save = [stacks[i]]
-        const ball = stacks[i].shift()
-        div.removeChild(div.firstChild)
-        console.log("Removed ball")
+    cylinderDiv.addEventListener("click", function () {
+      if (pickedBall) {
+        if (cylindersArray[i].length >= numOfBalls) {
+          return
+        }
+        cylindersArray[i].push(pickedBall)
+        cylinderDiv.appendChild(pickedBall)
+        //cylinderDiv.insertBefore(pickedBall, cylinderDiv.firstChild)
+        pickedBall = null
+      } else {
+        if (cylindersArray[i].length > 0 && cylinderDiv.firstChild) {
+          cylinderDiv.removeChild(cylinderDiv.firstChild)
+          pickedBall = cylindersArray[i].shift()
+        }
       }
-      console.log("Cylinder clicked!")
     })
   }
 }
 
-createTable("green", "yellow")
-createTable("yellow", "green")
-createTable()
+createTable(["green", "yellow", "green"])
+createTable(["yellow", "green", "yellow"])
+createTable([])
 add()
