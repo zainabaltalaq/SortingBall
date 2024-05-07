@@ -1,50 +1,49 @@
-function createBall() {
+const numOfBalls = 3
+const stacks = []
+// stacks.addEventListener("click")
+
+function createBall(color) {
   const ball = document.createElement("div")
   ball.className = "ball"
-  ball.style.display = "block"
-  ball.draggable = true
-  ball.addEventListener("dragstart", (event) => {
-    event.dataTransfer.setData("text/plain", event.target.id)
-  })
+  ball.style.backgroundColor = color
+  if (color) {
+    ball.style.display = "block"
+  }
   return ball
 }
 
-function createTable(color1, color2, number) {
-  let balls = 3
-  const table = document.createElement("table")
-  const row = document.createElement("tr")
-  for (let i = 0; i < balls; i++) {
-    if (number === 1) {
-      const ball = createBall()
-      ball.id = `ball${i + 1}`
-      ball.style.backgroundColor = i % 2 === 0 ? color1 : color2
-      row.appendChild(ball)
-    }
-
-    table.appendChild(row)
-  }
-  document.querySelector("main").appendChild(table)
+function createTable(color1, color2) {
+  const stack = []
+  stack.push(createBall(color1))
+  stack.push(createBall(color2))
+  stack.push(createBall(color1))
+  stacks.push(stack)
 }
 
-const cylinder = document.querySelector("main")
-cylinder.addEventListener("dragover", (event) => {
-  event.preventDefault()
-})
-
-cylinder.addEventListener("drop", (event) => {
-  event.preventDefault()
-  const ballId = event.dataTransfer.getData("text/plain")
-  const ball = document.getElementById(ballId)
-
-  if (ball) {
-    const targetTable = event.target.closest("table")
-    if (targetTable) {
-      const lastRow = targetTable.querySelector("tr")
-      lastRow.appendChild(ball)
+function add() {
+  for (let i = 0; i < stacks.length; i++) {
+    const div = document.createElement("div")
+    div.className = "cylinder"
+    for (let j = 0; j < stacks[i].length; j++) {
+      if (stacks[i][j]) {
+        div.appendChild(stacks[i][j])
+      }
     }
-  }
-})
+    document.querySelector("main").appendChild(div)
 
-createTable("yellow", "green", 1)
-createTable("green", "yellow", 1)
+    div.addEventListener("click", function () {
+      if (stacks[i].length > 0) {
+        const save = [stacks[i]]
+        const ball = stacks[i].shift()
+        div.removeChild(div.firstChild)
+        console.log("Removed ball")
+      }
+      console.log("Cylinder clicked!")
+    })
+  }
+}
+
+createTable("green", "yellow")
+createTable("yellow", "green")
 createTable()
+add()
