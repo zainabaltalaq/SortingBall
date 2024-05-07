@@ -12,10 +12,9 @@
 
 ### **Game instructions**
 
-- The player will have randomly colored balls in tubes
+- The player will have colored balls in tubes
 - The player must press the ball to move it to another tube
 - The player must sort the colored balls of one color into one tube (blue balls in one tube, and green balls in another tube) and the sorting will take place in a specific period of no more than 30 seconds.
-- The player must complete 10 stages to win
 
 ---
 
