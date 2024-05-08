@@ -1,6 +1,7 @@
 const numOfBalls = 3
 const cylindersArray = []
 var pickedBall = null
+playerWinner = false
 
 function createBall(color) {
   const ball = document.createElement("div")
@@ -40,6 +41,27 @@ function add() {
         cylindersArray[i].push(pickedBall)
         cylinderDiv.insertBefore(pickedBall, cylinderDiv.firstChild)
         pickedBall = null
+        for (let i = 0; i < cylindersArray.length; i++) {
+          if (cylindersArray[i].length > 0) {
+            // let countYellow = 0
+            let countGreen = 0
+            for (let j = 0; j < cylindersArray[i].length; j++) {
+              if (cylindersArray[i][j].style.backgroundColor === "green") {
+                countGreen++
+              }
+
+              // for (let k = 0; k < cylindersArray[i].length; k++) {
+              //   if (cylindersArray[i][k].style.backgroundColor === "yellow") {
+              //     countYellow++
+              //   }
+              // }
+              // // if (countGreen === numOfBalls && countYellow === numOfBalls) {
+              //   console.log("Winner on cylinder", i + 1)
+              //   // You can trigger any other action here for the winner
+              // }
+            }
+          }
+        }
       } else {
         if (cylindersArray[i].length > 0 && cylinderDiv.firstChild) {
           cylinderDiv.removeChild(cylinderDiv.firstChild)
