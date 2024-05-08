@@ -26,7 +26,7 @@
 - [ ] Create balls and put colors for them
 - [ ] Set a timer for the level that does not exceed 30 seconds
 - [ ] Move the balls using the click and place them in the tube
-- [ ] One tube is completed when the player finishes sorting the color in the tube correctly and completely
+- [ ] The player wins when balls of the same color are arranged in the tubes
 
 
 ![1](https://www7.0zz0.com/2024/05/04/15/591244624.jpg)
