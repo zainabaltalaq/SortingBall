@@ -1,12 +1,14 @@
 const numOfBalls = 3
 const cylindersArray = []
 var pickedBall = null
-const timeLimit = 30
+const timeLimit = 40
 const winText = document.getElementById("win")
 const playAgain = document.getElementById("playAgain")
 const nextLevel = document.getElementById("next")
 const timer = document.getElementById("timer")
 playAgain.addEventListener("click", reset)
+const header = document.getElementById("h1")
+header.innerText = "LEVEL 2"
 
 play = true
 
@@ -64,11 +66,13 @@ function add() {
 }
 let purple = 0
 let pink = 0
+let navy = 0
 function checkWinner() {
   for (let i = 0; i < cylindersArray.length; i++) {
     if (cylindersArray[i].length > 0) {
       let countpink = 0
       let countpurple = 0
+      let countnavy = 0
       for (let j = 0; j < cylindersArray[i].length; j++) {
         if (cylindersArray[i][j].style.backgroundColor === "pink") {
           countpink++
@@ -82,8 +86,13 @@ function checkWinner() {
         if (countpurple === 3) {
           purple = countpurple
         }
-
-        if (purple === 3 && pink === 3) {
+        if (cylindersArray[i][j].style.backgroundColor === "navy") {
+          countnavy++
+        }
+        if (countnavy === 3) {
+          navy = countnavy
+        }
+        if (purple === 3 && pink === 3 && navy === 3) {
           winText.innerText = "Winner Winner chicken dinner!"
           nextLevel.style.display = "block"
           play = false
@@ -95,6 +104,7 @@ function checkWinner() {
   }
   purple = 0
   pink = 0
+  navy = 0
 }
 
 function reset() {
@@ -107,8 +117,9 @@ function reset() {
   pink = 0
   navy = 0
   clearInterval(timerInterval)
-  createTable(["purple", "pink", "purple"])
-  createTable(["pink", "purple", "pink"])
+  createTable(["purple", "navy", "purple"])
+  createTable(["pink", "purple", "navy"])
+  createTable(["pink", "navy", "pink"])
   createTable([])
   add()
   startTimer()
@@ -127,8 +138,9 @@ function startTimer() {
   }, 1000)
 }
 
-createTable(["purple", "pink", "purple"])
-createTable(["pink", "purple", "pink"])
+createTable(["purple", "navy", "purple"])
+createTable(["pink", "purple", "navy"])
+createTable(["pink", "navy", "pink"])
 createTable([])
 add()
 startTimer()
