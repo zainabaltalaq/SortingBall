@@ -24,11 +24,12 @@ function add() {
   for (let i = 0; i < cylindersArray.length; i++) {
     const cylinderDiv = document.createElement("div")
     cylinderDiv.className = "cylinder"
-    for (let j = 0; j < cylindersArray[i].length; j++) {
-      if (cylindersArray[i][j]) {
-        cylinderDiv.appendChild(cylindersArray[i][j])
+    if (cylindersArray[i].length > 0)
+      for (let j = cylindersArray[i].length - 1; j >= 0; j--) {
+        if (cylindersArray[i][j]) {
+          cylinderDiv.appendChild(cylindersArray[i][j])
+        }
       }
-    }
     document.querySelector("main").appendChild(cylinderDiv)
 
     cylinderDiv.addEventListener("click", function () {
@@ -37,13 +38,12 @@ function add() {
           return
         }
         cylindersArray[i].push(pickedBall)
-        cylinderDiv.appendChild(pickedBall)
-        //cylinderDiv.insertBefore(pickedBall, cylinderDiv.firstChild)
+        cylinderDiv.insertBefore(pickedBall, cylinderDiv.firstChild)
         pickedBall = null
       } else {
         if (cylindersArray[i].length > 0 && cylinderDiv.firstChild) {
           cylinderDiv.removeChild(cylinderDiv.firstChild)
-          pickedBall = cylindersArray[i].shift()
+          pickedBall = cylindersArray[i].pop()
         }
       }
     })
