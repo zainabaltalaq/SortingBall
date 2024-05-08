@@ -1,7 +1,8 @@
 const numOfBalls = 3
 const cylindersArray = []
 var pickedBall = null
-playerWinner = false
+const winText = document.getElementById("win")
+play = true
 
 function createBall(color) {
   const ball = document.createElement("div")
@@ -34,6 +35,9 @@ function add() {
     document.querySelector("main").appendChild(cylinderDiv)
 
     cylinderDiv.addEventListener("click", function () {
+      if (!play) {
+        return
+      }
       if (pickedBall) {
         if (cylindersArray[i].length >= numOfBalls) {
           return
@@ -41,27 +45,7 @@ function add() {
         cylindersArray[i].push(pickedBall)
         cylinderDiv.insertBefore(pickedBall, cylinderDiv.firstChild)
         pickedBall = null
-        for (let i = 0; i < cylindersArray.length; i++) {
-          if (cylindersArray[i].length > 0) {
-            // let countYellow = 0
-            let countGreen = 0
-            for (let j = 0; j < cylindersArray[i].length; j++) {
-              if (cylindersArray[i][j].style.backgroundColor === "green") {
-                countGreen++
-              }
-
-              // for (let k = 0; k < cylindersArray[i].length; k++) {
-              //   if (cylindersArray[i][k].style.backgroundColor === "yellow") {
-              //     countYellow++
-              //   }
-              // }
-              // // if (countGreen === numOfBalls && countYellow === numOfBalls) {
-              //   console.log("Winner on cylinder", i + 1)
-              //   // You can trigger any other action here for the winner
-              // }
-            }
-          }
-        }
+        checkWinner()
       } else {
         if (cylindersArray[i].length > 0 && cylinderDiv.firstChild) {
           cylinderDiv.removeChild(cylinderDiv.firstChild)
@@ -70,6 +54,38 @@ function add() {
       }
     })
   }
+}
+let green = 0
+let yellow = 0
+function checkWinner() {
+  for (let i = 0; i < cylindersArray.length; i++) {
+    if (cylindersArray[i].length > 0) {
+      let countYellow = 0
+      let countGreen = 0
+      for (let j = 0; j < cylindersArray[i].length; j++) {
+        if (cylindersArray[i][j].style.backgroundColor === "yellow") {
+          countYellow++
+        }
+        if (countYellow === 3) {
+          yellow = countYellow
+        }
+        if (cylindersArray[i][j].style.backgroundColor === "green") {
+          countGreen++
+        }
+        if (countGreen === 3) {
+          green = countGreen
+        }
+
+        if (green === 3 && yellow === 3) {
+          winText.innerText = "Winner Winner chicken dinner!"
+          play = false
+          return
+        }
+      }
+    }
+  }
+  green = 0
+  yellow = 0
 }
 
 createTable(["green", "yellow", "green"])

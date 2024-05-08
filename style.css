@@ -66,3 +66,10 @@ main {
   display: flex;
   justify-content: center;
 }
+
+#win {
+  margin: 10px;
+  font-size: 40px;
+  text-align: center;
+  color: black;
+}
