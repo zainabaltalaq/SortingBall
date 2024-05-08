@@ -24,7 +24,7 @@
 
 - [ ] Create tubes. 
 - [ ] Create balls and put colors for them
-- [ ] Set a timer for the level that does not exceed 30 seconds
+- [ ] Set a timer for the level
 - [ ] Move the balls using the click and place them in the tube
 - [ ] The player wins when balls of the same color are arranged in the tubes
 
