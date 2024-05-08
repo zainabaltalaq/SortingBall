@@ -1,9 +1,16 @@
 const numOfBalls = 3
 const cylindersArray = []
 var pickedBall = null
+const timeLimit = 30
 const winText = document.getElementById("win")
+const playAgain = document.getElementById("playAgain")
+const nextLevel = document.getElementById("next")
+const timer = document.getElementById("timer")
+playAgain.addEventListener("click", reset)
+
 play = true
 
+let timerInterval
 function createBall(color) {
   const ball = document.createElement("div")
   ball.className = "ball"
@@ -55,40 +62,72 @@ function add() {
     })
   }
 }
-let green = 0
-let yellow = 0
+let purple = 0
+let pink = 0
 function checkWinner() {
   for (let i = 0; i < cylindersArray.length; i++) {
     if (cylindersArray[i].length > 0) {
-      let countYellow = 0
-      let countGreen = 0
+      let countpink = 0
+      let countpurple = 0
       for (let j = 0; j < cylindersArray[i].length; j++) {
-        if (cylindersArray[i][j].style.backgroundColor === "yellow") {
-          countYellow++
+        if (cylindersArray[i][j].style.backgroundColor === "pink") {
+          countpink++
         }
-        if (countYellow === 3) {
-          yellow = countYellow
+        if (countpink === 3) {
+          pink = countpink
         }
-        if (cylindersArray[i][j].style.backgroundColor === "green") {
-          countGreen++
+        if (cylindersArray[i][j].style.backgroundColor === "purple") {
+          countpurple++
         }
-        if (countGreen === 3) {
-          green = countGreen
+        if (countpurple === 3) {
+          purple = countpurple
         }
 
-        if (green === 3 && yellow === 3) {
+        if (purple === 3 && pink === 3) {
           winText.innerText = "Winner Winner chicken dinner!"
+          nextLevel.style.display = "block"
           play = false
+          clearInterval(timerInterval)
           return
         }
       }
     }
   }
-  green = 0
-  yellow = 0
+  purple = 0
+  pink = 0
 }
 
-createTable(["green", "yellow", "green"])
-createTable(["yellow", "green", "yellow"])
+function reset() {
+  play = true
+  winText.innerText = ""
+  document.querySelector("main").innerHTML = ""
+  cylindersArray.length = 0
+  nextLevel.style.display = "none"
+  green = 0
+  yellow = 0
+  clearInterval(timerInterval)
+  createTable(["purple", "pink", "purple"])
+  createTable(["pink", "purple", "pink"])
+  createTable([])
+  add()
+  startTimer()
+}
+
+function startTimer() {
+  let timeLeft = timeLimit
+  timerInterval = setInterval(() => {
+    if (timeLeft > 0) {
+      timeLeft--
+      timer.textContent = timeLeft
+    } else {
+      clearInterval(timerInterval)
+      window.location.href = "looser.html"
+    }
+  }, 1000)
+}
+
+createTable(["purple", "pink", "purple"])
+createTable(["pink", "purple", "pink"])
 createTable([])
 add()
+startTimer()
